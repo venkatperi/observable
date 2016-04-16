@@ -50,6 +50,13 @@ describe "observable", ->
     assert.equal obj.a, undefined
     done()
 
+  it "emits delete", ( done ) ->
+    obj = observable { a : { b : 2 } }
+    obj.on "deleted", ( name ) ->
+      name.should.equal "a"
+      done()
+    delete obj.a
+
   it "get keys", ( done ) ->
     obj = observable { a : 1, b : 2, c : 3 }
     keys = Object.keys obj
