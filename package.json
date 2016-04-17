@@ -7,7 +7,9 @@
   },
   "preferGlobal": false,
   "description": "`denodeified` nodejs methods returning promises instead of callbacks",
-  "dependencies": {},
+  "dependencies": {
+    "harmony-reflect": "^1.4.5"
+  },
   "engines": {
     "node": ">= 0.6.0",
     "npm": ">= 1.0.0"
