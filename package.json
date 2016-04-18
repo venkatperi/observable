@@ -9,7 +9,6 @@
   "description": "`denodeified` nodejs methods returning promises instead of callbacks",
   "dependencies": {
     "harmony-reflect": "^1.4.5",
-    "traverse": "^0.6.6",
     "underscore": "^1.8.3"
   },
   "engines": {

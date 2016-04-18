@@ -1,6 +1,5 @@
 require( "harmony-reflect" )
 util = require "util"
-traverse = require 'traverse'
 EventEmitter = require( "events" ).EventEmitter
 _ = require 'underscore'
 
