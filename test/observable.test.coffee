@@ -25,8 +25,7 @@ describe "observable", ->
     o2.a = 2
 
   it "emits changed for nested properties", ( done ) ->
-    obj = {}
-    o2 = observable obj
+    o2 = observable()
     o2.a = {}
     o2.on "changed", ( name, old, value ) ->
       name.should.equal "a.b"
@@ -73,5 +72,21 @@ describe "observable", ->
         assert k in keys
     done()
 
+  it "handles arrays", ( done ) ->
+    o2 = observable [ 1, 2, 3 ]
+    o2.on "changed", ( name, old, value ) ->
+      name.should.equal "0"
+      value.should.equal 4
+      done()
 
+    o2[ 0 ] = 4
+
+  it "init with deep nested obj", ( done ) ->
+    o2 = observable { a : { b : { c : 3 } } }
+    o2.on "changed", ( name, old, value ) ->
+      name.should.equal "a.b.c"
+      value.should.equal 4
+      done()
+
+    o2.a.b.c = 4
 
